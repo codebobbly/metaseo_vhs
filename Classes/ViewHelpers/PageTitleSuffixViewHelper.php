@@ -20,11 +20,8 @@ class PageTitleSuffixViewHelper extends AbstractViewHelper
    *
    * @return string The rendered view
    */
-  public function render()
-  {
-
-    $this->metaseoConnector->setPageTitleSuffix($this->renderChildren());
-
-  }
-
+    public function render()
+    {
+        $this->metaseoConnector->setPageTitleSuffix($this->renderChildren());
+    }
 }

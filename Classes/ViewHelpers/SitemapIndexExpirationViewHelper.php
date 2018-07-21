@@ -20,11 +20,8 @@ class SitemapIndexExpirationViewHelper extends AbstractViewHelper
    *
    * @return string The rendered view
    */
-  public function render()
-  {
-
-    $this->metaseoConnector->setSitemapIndexExpiration(intval($this->renderChildren()));
-
-  }
-
+    public function render()
+    {
+        $this->metaseoConnector->setSitemapIndexExpiration(intval($this->renderChildren()));
+    }
 }

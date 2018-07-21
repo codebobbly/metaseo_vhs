@@ -20,11 +20,8 @@ class PageTitleSitetitleViewHelper extends AbstractViewHelper
    *
    * @return string The rendered view
    */
-  public function render()
-  {
-
-    $this->metaseoConnector->setPageTitleSitetitle($this->renderChildren());
-
-  }
-
+    public function render()
+    {
+        $this->metaseoConnector->setPageTitleSitetitle($this->renderChildren());
+    }
 }
