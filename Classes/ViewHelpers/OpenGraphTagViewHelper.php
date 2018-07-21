@@ -20,21 +20,18 @@ class OpenGraphTagViewHelper extends AbstractViewHelper
    *
    * @return void
    */
-  public function initializeArguments()
-  {
-      $this->registerArgument('key', 'string', 'OpenGraph name', TRUE);
-  }
+    public function initializeArguments()
+    {
+        $this->registerArgument('key', 'string', 'OpenGraph name', true);
+    }
 
-  /**
-   * Renders the view
-   *
-   * @return string The rendered view
-   */
-  public function render()
-  {
-
-    $this->metaseoConnector->setOpenGraphTag($this->arguments['key'], $this->renderChildren());
-
-  }
-
+    /**
+     * Renders the view
+     *
+     * @return string The rendered view
+     */
+    public function render()
+    {
+        $this->metaseoConnector->setOpenGraphTag($this->arguments['key'], $this->renderChildren());
+    }
 }

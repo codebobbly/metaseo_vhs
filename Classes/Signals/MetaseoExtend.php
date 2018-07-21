@@ -2,7 +2,8 @@
 
 namespace RGU\MetaseoVhs\Signals;
 
-class MetaseoExtend {
+class MetaseoExtend
+{
     /**
      * Metaseo Signal for page metadata
      * see -> \Metaseo\Metaseo\Page\Part\MetatagPart->processMetaTags
@@ -11,18 +12,17 @@ class MetaseoExtend {
      * @param $obj
      * @return array
      */
-    public function metatagOutput($args, $obj) {
-      // Modify the parameter $args here
+    public function metatagOutput($args, $obj)
+    {
+        // Modify the parameter $args here
 
-      // There is a Issue in the mateseo extension. If the pageTitle is replaced, then the meta.title is wrong
-      $rawTitle = !empty($GLOBALS['TSFE']->altPageTitle) ? $GLOBALS['TSFE']->altPageTitle : $GLOBALS['TSFE']->page['title'];
+        // There is a Issue in the mateseo extension. If the pageTitle is replaced, then the meta.title is wrong
+        $rawTitle = !empty($GLOBALS['TSFE']->altPageTitle) ? $GLOBALS['TSFE']->altPageTitle : $GLOBALS['TSFE']->page['title'];
 
-      if($args["meta.title"] && $args["meta.title"]["attributes"]["content"] !== $rawTitle) {
-        $args["meta.title"]["attributes"]["content"] = $rawTitle;
-      }
+        if ($args['meta.title'] && $args['meta.title']['attributes']['content'] !== $rawTitle) {
+            $args['meta.title']['attributes']['content'] = $rawTitle;
+        }
 
-       return array($args, $obj);
-
+        return [$args, $obj];
     }
-
 }

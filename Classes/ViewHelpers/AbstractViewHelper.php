@@ -19,5 +19,4 @@ class AbstractViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractTagBas
     {
         $this->metaseoConnector = $metaseoConnector;
     }
-
 }
