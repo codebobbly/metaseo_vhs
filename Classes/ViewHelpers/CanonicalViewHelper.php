@@ -20,13 +20,10 @@ class CanonicalViewHelper extends AbstractViewHelper
    *
    * @return string The rendered view
    */
-  public function render()
-  {
-
-    if (!empty($GLOBALS['TSFE'])) {
-        $GLOBALS['TSFE']->page['tx_metaseo_canonicalurl'] = $this->renderChildren();
+    public function render()
+    {
+        if (!empty($GLOBALS['TSFE'])) {
+            $GLOBALS['TSFE']->page['tx_metaseo_canonicalurl'] = $this->renderChildren();
+        }
     }
-
-  }
-
 }

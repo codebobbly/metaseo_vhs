@@ -20,11 +20,8 @@ class PageTitlePrefixViewHelper extends AbstractViewHelper
    *
    * @return string The rendered view
    */
-  public function render()
-  {
-
-    $this->metaseoConnector->setPageTitlePrefix($this->renderChildren());
-
-  }
-
+    public function render()
+    {
+        $this->metaseoConnector->setPageTitlePrefix($this->renderChildren());
+    }
 }

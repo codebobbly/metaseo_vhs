@@ -89,7 +89,6 @@ class OpenGraphImageViewHelper extends AbstractViewHelper
         }
 
         try {
-
             $image = $this->imageService->getImage($this->arguments['src'], $this->arguments['image'], $this->arguments['treatIdAsReference']);
             $cropString = $this->arguments['crop'];
             if ($cropString === null && $image->hasProperty('crop') && $image->getProperty('crop')) {
@@ -116,32 +115,26 @@ class OpenGraphImageViewHelper extends AbstractViewHelper
                 $alt = $this->arguments['alt'];
             }
 
-
             // There is a Issue in the Extantion Metaseo
             // We check here, if there is a Image, then Use setOpenGraphTag otherwise use setCustomOpenGraphTag
             // We use the Hook "metatagOutput" to correct the MetaData. At the moment, we have to Image Values per dot. The Hook will replace that
-            if(empty($GLOBALS['TSFE']->page['tx_metaseo_opengraph_image'])) {
+            if (empty($GLOBALS['TSFE']->page['tx_metaseo_opengraph_image'])) {
+                $this->metaseoConnector->setCustomOpenGraphTag('image:url', $imageUri);
 
-              $this->metaseoConnector->setCustomOpenGraphTag('image:url', $imageUri);
-
-              if(!empty($alt)) {
-                $this->metaseoConnector->setCustomOpenGraphTag('image:alt', $alt);
-              }
-
+                if (!empty($alt)) {
+                    $this->metaseoConnector->setCustomOpenGraphTag('image:alt', $alt);
+                }
             } else {
+                $this->metaseoConnector->setOpenGraphTag('image.url', $imageUri);
 
-              $this->metaseoConnector->setOpenGraphTag('image.url', $imageUri);
-
-              if(!empty($alt)) {
-                $this->metaseoConnector->setOpenGraphTag('image.alt', $alt);
-              }
-
+                if (!empty($alt)) {
+                    $this->metaseoConnector->setOpenGraphTag('image.alt', $alt);
+                }
             }
 
             $this->metaseoConnector->setOpenGraphTag('image.width', $processedImage->getProperty('width'));
             $this->metaseoConnector->setOpenGraphTag('image.height', $processedImage->getProperty('height'));
             $this->metaseoConnector->setOpenGraphTag('image.type', $processedImage->getMimeType());
-
         } catch (ResourceDoesNotExistException $e) {
             // thrown if file does not exist
             throw new Exception($e->getMessage(), 1509741911, $e);
@@ -155,6 +148,5 @@ class OpenGraphImageViewHelper extends AbstractViewHelper
             // thrown if file storage does not exist
             throw new Exception($e->getMessage(), 1509741914, $e);
         }
-
     }
 }

@@ -20,21 +20,18 @@ class PageTitleAbsoluteViewHelper extends AbstractViewHelper
    *
    * @return void
    */
-  public function initializeArguments()
-  {
-      $this->registerArgument('updateTsfe', 'boolean', 'Update TSFE values', FALSE);
-  }
+    public function initializeArguments()
+    {
+        $this->registerArgument('updateTsfe', 'boolean', 'Update TSFE values', false);
+    }
 
-  /**
-   * Renders the view
-   *
-   * @return string The rendered view
-   */
-  public function render()
-  {
-
-    $this->metaseoConnector->setPageTitleAbsolute($this->renderChildren(), $this->arguments['updateTsfe']);
-
-  }
-
+    /**
+     * Renders the view
+     *
+     * @return string The rendered view
+     */
+    public function render()
+    {
+        $this->metaseoConnector->setPageTitleAbsolute($this->renderChildren(), $this->arguments['updateTsfe']);
+    }
 }

@@ -20,21 +20,18 @@ class MetaTagViewHelper extends AbstractViewHelper
    *
    * @return void
    */
-  public function initializeArguments()
-  {
-      $this->registerArgument('key', 'string', 'Metatag name', TRUE);
-  }
+    public function initializeArguments()
+    {
+        $this->registerArgument('key', 'string', 'Metatag name', true);
+    }
 
-  /**
-   * Renders the view
-   *
-   * @return string The rendered view
-   */
-  public function render()
-  {
-
-    $this->metaseoConnector->setMetaTag($this->arguments['key'], $this->renderChildren());
-
-  }
-
+    /**
+     * Renders the view
+     *
+     * @return string The rendered view
+     */
+    public function render()
+    {
+        $this->metaseoConnector->setMetaTag($this->arguments['key'], $this->renderChildren());
+    }
 }
