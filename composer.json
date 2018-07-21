@@ -1,0 +1,61 @@
+{
+  "name": "rgu/metaseo-vhs",
+  "version": "1.0.0",
+  "type": "typo3-cms-extension",
+  "description": "Fluid ViewHelpers for Metaseo",
+  "autoload": {
+    "psr-4": {
+      "RGU\\MetaseoVhs\\": "Classes/"
+    }
+  },
+  "keywords": [
+    "TYPO3 CMS",
+    "Metaseo",
+    "ViewHelpers",
+    "Extbase"
+  ],
+  "homepage": "https://github.com/codebobbly/metaseo_vhs",
+  "authors": [
+    {
+      "name": "codebobbly",
+      "role": "Developer",
+      "homepage": "https://github.com/codebobbly"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": ">=7.6.0",
+    "webdevops/metaseo": ">=3.0.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "nimut/testing-framework": ">=1.0"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "RGU\\MetaseoVhs\\Tests\\": "Tests"
+    }
+  },
+  "replace": {
+    "metaseo-vhs": "self.version",
+    "typo3-ter/metaseo-vhs": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/metaseo_vhs ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/metaseo_vhs"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    },
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}
