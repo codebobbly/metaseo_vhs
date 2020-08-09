@@ -39,10 +39,6 @@
       "RGU\\MetaseoVhs\\Tests\\": "Tests"
     }
   },
-  "replace": {
-    "rgu/metaseo-vhs": "self.version",
-    "typo3-ter/metaseo-vhs": "self.version"
-  },
   "config": {
     "vendor-dir": ".Build/vendor",
     "bin-dir": ".Build/bin"
