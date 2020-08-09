@@ -40,7 +40,7 @@
     }
   },
   "replace": {
-    "metaseo-vhs": "self.version",
+    "rgu/metaseo-vhs": "self.version",
     "typo3-ter/metaseo-vhs": "self.version"
   },
   "config": {
